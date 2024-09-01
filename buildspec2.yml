@@ -1,0 +1,15 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - echo "Skipping install phase..."
+  pre_build:
+    commands:
+      - echo "Pre-build step..."
+  build:
+    commands:
+      - echo "Build step not required for static websites..."
+  post_build:
+    commands:
+      - echo "Copying files to the S3 bucket..."
+      - aws s3 sync . s3://cicd-project-dogukan --delete
